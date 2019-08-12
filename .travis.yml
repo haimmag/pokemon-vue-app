@@ -1,21 +1,23 @@
 language: node_js
 
 node_js:
+  # Node 10.3+ includes npm@6 which has good "npm ci" command
   - "lts/*"
+
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ./node_modules
+    - ~/.cache
+  override:
+    - npm ci
+    - npm run cy:verify
 
 install:
   - npm ci
 
-cache: 
-  directories:
-      - ~/.npm
-      - ./node_modules
-      - ~/.cache
-    override:
-      - npm ci
-      - npm run cy:verify
-
 script:
-    - npm run lint    
-    - npm run cy:verify
-    - npm run ci:cy-run      
+  - npm run lint
+  - npm run cy:verify
+  - npm run ci:cy-run
