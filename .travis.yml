@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  - "lts/*"
+
+install:
+  - npm ci
+
+cache: 
+  directories:
+      - ~/.npm
+      - ./node_modules
+      - ~/.cache
+    override:
+      - npm ci
+      - npm run cy:verify
+
+script:
+    - npm run lint    
+    - npm run cy:verify
+    - npm run ci:cy-run      
