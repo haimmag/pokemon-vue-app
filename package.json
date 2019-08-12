@@ -9,7 +9,8 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
     "cy:run": "vue-cli-service test:e2e --headless",
-    "ci:cy-run": "start-server-and-test serve http://localhost:8000 cy:run"
+    "ci:cy-run": "start-server-and-test serve http://localhost:8000 cy:run",
+    "cy:verify": "cypress verify"
   },
   "dependencies": {
     "core-js": "^2.6.5",
