@@ -15,7 +15,7 @@ cache:
     - npm run cy:verify
 
 install:
-  - npm ci
+  - yarn install
 
 script:
   - npm run lint
